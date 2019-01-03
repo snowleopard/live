@@ -5,7 +5,6 @@
 
 module Graph where
 
-import Control.Monad
 import Data.Set as Set
 
 -- An algebraic data type for describing graphs.
@@ -15,6 +14,44 @@ data Graph a = Empty
              | Connect (Graph a) (Graph a)
              deriving Show
 
+-- Check if a graph is empty.
+isEmpty :: Graph a -> Bool
+isEmpty = undefined
+
+-- The size of a graph expression: the total number of Empty and Vertex leaves.
+size :: Graph a -> Int
+size = undefined
+
+-- Fold a graph by recursively applying the provided functions to the leaves
+-- and internal nodes of the expression.
+-- The order of arguments is: empty, vertex, overlay and connect.
+foldg :: b -> (a -> b) -> (b -> b -> b) -> (b -> b -> b) -> Graph a -> b
+foldg = undefined
+
+-- The set of vertices of a given graph.
+vertexSet :: Ord a => Graph a -> Set a
+vertexSet = undefined
+
+-- The set of edges of a given graph.
+edgeSet :: Ord a => Graph a -> Set (a, a)
+edgeSet = undefined
+
+-- The sorted list of vertices of a given graph.
+vertexList :: Ord a => Graph a -> [a]
+vertexList = undefined
+
+-- The sorted list of edges of a graph.
+edgeList :: Ord a => Graph a -> [(a, a)]
+edgeList = undefined
+
+-- Graph equality.
+instance Ord a => Eq (Graph a) where
+    (==) = undefined
+
+-- Check if the first graph is a subgraph of the second.
+isSubgraphOf :: Eq a => Graph a -> Graph a -> Bool
+isSubgraphOf = undefined
+
 -- Convenient syntax sugar for constructing graphs with numeric vertices.
 instance Num a => Num (Graph a) where
     fromInteger = undefined
@@ -23,20 +60,6 @@ instance Num a => Num (Graph a) where
     signum      = undefined
     abs         = undefined
     negate      = undefined
-
-instance Ord a => Eq (Graph a) where
-    (==) = undefined
-
-instance Functor Graph where
-    fmap = undefined
-
-instance Applicative Graph where
-    pure  = Vertex
-    (<*>) = ap
-
-instance Monad Graph where
-    return = pure
-    (>>=)  = undefined
 
 -- Construct the graph comprising a single edge.
 edge :: a -> a -> Graph a
@@ -58,24 +81,6 @@ overlays = undefined
 connects :: [Graph a] -> Graph a
 connects = undefined
 
--- Fold a graph by recursively applying the provided functions to the leaves
--- and internal nodes of the expression.
--- The order of arguments is: empty, vertex, overlay and connect.
-foldg :: b -> (a -> b) -> (b -> b -> b) -> (b -> b -> b) -> Graph a -> b
-foldg = undefined
-
--- Check if the first graph is a subgraph of the second.
-isSubgraphOf :: Eq a => Graph a -> Graph a -> Bool
-isSubgraphOf = undefined
-
--- Check if a graph is empty.
-isEmpty :: Graph a -> Bool
-isEmpty = undefined
-
--- The size of a graph, i.e. the number of leaves of the expression.
-size :: Graph a -> Int
-size = undefined
-
 -- Check if a graph contains a given vertex.
 hasVertex :: Eq a => a -> Graph a -> Bool
 hasVertex = undefined
@@ -84,21 +89,13 @@ hasVertex = undefined
 hasEdge :: Eq a => a -> a -> Graph a -> Bool
 hasEdge = undefined
 
--- The sorted list of vertices of a given graph.
-vertexList :: Ord a => Graph a -> [a]
-vertexList = undefined
+-- Transpose a graph, i.e. flip the direction of all edges.
+transpose :: Graph a -> Graph a
+transpose = undefined
 
--- The sorted list of edges of a graph.
-edgeList :: Ord a => Graph a -> [(a, a)]
-edgeList = undefined
-
--- The set of vertices of a given graph.
-vertexSet :: Ord a => Graph a -> Set a
-vertexSet = undefined
-
--- The set of edges of a given graph.
-edgeSet :: Ord a => Graph a -> Set (a, a)
-edgeSet = undefined
+-- Simplify a graph.
+simplify :: Ord a => Graph a -> Graph a
+simplify = undefined
 
 -- The path on a list of vertices.
 path :: [a] -> Graph a
@@ -119,6 +116,17 @@ biclique = undefined
 -- The star formed by a centre vertex connected to a list of leaves.
 star :: a -> [a] -> Graph a
 star = undefined
+
+instance Functor Graph where
+    fmap = undefined
+
+instance Applicative Graph where
+    pure  = undefined
+    (<*>) = undefined
+
+instance Monad Graph where
+    return = undefined
+    (>>=)  = undefined
 
 -- Remove a vertex from a given graph.
 removeVertex :: Eq a => a -> Graph a -> Graph a
@@ -141,16 +149,9 @@ mergeVertices = undefined
 splitVertex :: Eq a => a -> [a] -> Graph a -> Graph a
 splitVertex = undefined
 
-transpose :: Graph a -> Graph a
-transpose = undefined
-
 -- Construct the induced subgraph of a given graph.
 induce :: (a -> Bool) -> Graph a -> Graph a
 induce = undefined
-
--- Simplify a graph.
-simplify :: Ord a => Graph a -> Graph a
-simplify = undefined
 
 -- Compute the Cartesian product of graphs.
 box :: Graph a -> Graph b -> Graph (a, b)
