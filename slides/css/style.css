@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Rambla');
+
+body {
+    font-family: 'Nunito Sans';
+}
+
+.grayscale {
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    opacity: 0.25;
+    filter: alpha(opacity=25); /* For IE8 and earlier */
+}
+
+.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.circle a {
+    text-decoration: none;
+    color: white;
+}
+
+.active {
+    background-color: #2196F3;
+  /*  width: 60px;
+    height: 60px;
+    margin-left: -10px;
+    line-height: 60px;*/
+}
+
+.inactive {
+    background-color: #cccccc;
+}
+
+.vruler {
+    width: 5px;
+    margin: -10px;
+    margin-left: 17.5px;
+    margin-right: 17.5px;
+    height: 40px;
+    display: block;
+}
+
+.vsubruler {
+    width: 5px;
+    margin: -10px;
+    margin-left: 17.5px;
+    margin-right: 17.5px;
+    height: 30px;
+    display: block;
+}
+
+.vsubruler2 {
+    width: 5px;
+    margin: -10px;
+    margin-left: 17.5px;
+    margin-right: 17.5px;
+    height: 20px;
+    display: block;
+}
+
+.subcircle {
+    border-radius: 20%;
+    margin-left: 7px;
+    margin-bottom: -3px;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.subcircle2 {
+    border-radius: 20%;
+    margin-bottom: -3px;
+    width: 26px;
+    height: 26px;
+    margin-left: 70px;
+    line-height: 26px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.big {
+    font-size: 26pt;
+}
+
+.big a {
+    text-decoration: none;
+    color: black;
+}
+
+.lessbig {
+    font-size: 20pt;
+}
+
+.lessbig a {
+    text-decoration: none;
+    color: black;
+}
+
+.title-big {
+    font-size: 60pt;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10pt;
+    font-size: small;
+    width: 100%;
+    left: 0pt;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.venue {
+    font-style: italic;
+}
+
+.spacer {
+    visibility: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Nunito Sans';
+    font-weight: 600;
+}
+
+pre {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h2 code {
+    font-weight: 400;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.remark-slide-content h1 {
+    font-size: 56pt;
+    border-bottom: solid 1pt #cccccc;
+    margin-bottom: 20pt;
+}
+
+.remark-slide-content h2 {
+    font-size: 30pt;
+    border-bottom: solid 1pt #cccccc;
+    margin-top: 15pt !important;
+    margin-bottom: 15pt !important;
+}
+
+.check {
+    color: #00bb00;
+    background-image: url("../icons/check.svg");
+    padding-left: 25pt;
+    margin: 5pt;
+    background-repeat: no-repeat;
+    display: block;
+    margin-top: 10pt;
+    /*margin-bottom: 30pt;*/
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.fig_module {
+    width: 80%;
+    border: solid 1pt #cccccc;
+    padding: 20pt;
+    margin: 10pt;
+}
+
+img.big {
+    width: 60%;
+    border: solid 1pt #cccccc;
+    padding: 10pt;
+    margin: 10pt;
+}
+
+.sep {
+    width: 100%;
+    margin: -5pt;
+    display: block;
+    border-bottom: solid 1pt #eeeeee;
+}
+
+.emph {
+    font-weight: bold;
+    color: rgb(0, 0, 160);
+}
+
+.red {
+    color: #b00000;
+}
+
+.green {
+    color: #086600;
+}
+
+strong {
+    color: rgb(0, 0, 160);
+}
+
+.underlined {
+    border-bottom: dashed 1pt;
+}
+
+.blue {
+    color: #00b0f0;
+}
+
+#logos img {
+    width: 27.5%;
+    /*height: 60pt;*/
+    margin: 15pt;
+    margin-top: 5pt;
+}
+
+.equation {
+    padding: 10px;
+    vertical-align: middle;
+    -webkit-transform: scale(1.25); /* Saf3.1+, Chrome */
+    -moz-transform: scale(1.25); /* FF3.5+ */
+    -ms-transform: scale(1.25); /* IE9 */
+    -o-transform: scale(1.25); /* Opera 10.5+ */
+    transform: scale(1.25);
+}
+
+.remark-code, .remark-inline-code {
+    font-family: 'Source Code Pro';
+}
+
+.remark-code-span-highlighted {
+    padding: 0px 0px 0px 0px;
+}
+
+.remark-code-line {
+    font-size: 17pt;
+}
+
+.code, code.remark-inline-code {
+    font-family: Source Code Pro;
+    background: #eeeeee;
+    border: solid 1px #dddddd;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.code2 {
+    font-family: Source Code Pro;
+    background: #E3F2FD;
+    border: solid 1px #BBDEFB;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.tab1 {
+    border: solid 1px #dddddd;
+    width: 100%;
+    padding: 10pt;
+}
+
+p {
+    margin-block-start: 5pt;
+    margin-block-end: 5pt;
+    font-size: 20pt;
+    line-height: 160%;
+}
+
+li {
+    font-size: 20pt;
+    margin-block-start: 18pt;
+}
+
+li li {
+    font-size: 18pt;
+    margin-block-start: 10pt;
+}
+
+.footnote {
+    font-size: 12pt;
+    position: absolute;
+    bottom: 50pt;
+    width: 80%;
+}
+
+.tb {
+    border: solid 1pt #dddddd;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 0pt;
+}
+
+.tb td {
+    text-align: center;
+    border: solid 1pt #dddddd;
+    padding: 10pt;
+}
+
+a {
+    text-decoration: underline;
+    /* border-bottom: solid 1px #2196F3; */
+    color: #2196F3;
+}
+
+.fix-code-height .remark-code {
+    height: 380pt;
+}
