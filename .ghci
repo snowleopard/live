@@ -5,7 +5,7 @@
 
 :set -XTupleSections
 
-:load Graph
+:load Graph Solution.Graph
 
 :set prompt "\x03BB> "
 :set prompt-cont "\x03BB| "

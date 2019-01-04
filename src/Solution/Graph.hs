@@ -1,7 +1,7 @@
 -- Algebraic graphs: https://hackage.haskell.org/package/algebraic-graphs.
 {-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
-module Graph where
+module Solution.Graph where
 
 import Data.Set as Set
 
@@ -14,38 +14,48 @@ data Graph a = Empty
 
 -- Check if a graph is empty.
 isEmpty :: Graph a -> Bool
-isEmpty = undefined
+isEmpty = foldg True (const False) (&&) (&&)
 
 -- The meaning of a graph expression as a pair sets (vertices and edges).
 directedGraphSemantics :: Ord a => Graph a -> (Set a, Set (a, a))
-directedGraphSemantics = undefined
+directedGraphSemantics = foldg e v o c
+ where
+  e                 = (Set.empty      , Set.empty)
+  v a               = (Set.singleton a, Set.empty)
+  o (v1,e1) (v2,e2) = (Set.union v1 v2, Set.union e1 e2)
+  c (v1,e1) (v2,e2) = (Set.union v1 v2, Set.unions [e1, e2, Set.cartesianProduct v1 v2])
 
 -- Fold a graph by recursively applying the provided functions to the leaves
 -- and internal nodes of the expression.
 -- The order of arguments is: empty, vertex, overlay and connect.
 foldg :: b -> (a -> b) -> (b -> b -> b) -> (b -> b -> b) -> Graph a -> b
-foldg = undefined
+foldg e v o c = go
+  where
+   go Empty         = e
+   go (Vertex a   ) = v a
+   go (Overlay x y) = o (go x) (go y)
+   go (Connect x y) = c (go x) (go y)
 
 -- Graph equality.
 instance Ord a => Eq (Graph a) where
-  (==) = undefined
+  x == y = directedGraphSemantics x == directedGraphSemantics y
 
 -- Convenient syntax sugar for constructing graphs with numeric vertices.
 instance Num a => Num (Graph a) where
-  fromInteger = undefined
-  (+)         = undefined
-  (*)         = undefined
-  signum      = undefined
-  abs         = undefined
-  negate      = undefined
+  fromInteger = Vertex . fromInteger
+  (+)         = Overlay
+  (*)         = Connect
+  signum      = const Empty
+  abs         = id
+  negate      = id
 
 -- The sorted list of vertices of a given graph.
 vertexList :: Ord a => Graph a -> [a]
-vertexList = undefined
+vertexList = Set.toAscList . fst . directedGraphSemantics
 
 -- The sorted list of edges of a graph.
 edgeList :: Ord a => Graph a -> [(a, a)]
-edgeList = undefined
+edgeList = Set.toAscList . snd . directedGraphSemantics
 
 -- Check if the first graph is a subgraph of the second.
 isSubgraphOf :: Eq a => Graph a -> Graph a -> Bool
