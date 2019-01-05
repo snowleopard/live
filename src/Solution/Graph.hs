@@ -1,5 +1,4 @@
 -- Algebraic graphs: https://hackage.haskell.org/package/algebraic-graphs.
-{-# OPTIONS_GHC -fno-warn-redundant-constraints #-}
 
 module Solution.Graph where
 
@@ -138,10 +137,6 @@ replaceVertex a b = fmap $ \c -> if c == a then b else c
 mergeVertices :: (a -> Bool) -> a -> Graph a -> Graph a
 mergeVertices p a = fmap $ \b -> if p b then a else b
 
-instance Applicative Graph where
-  pure    = Vertex
-  f <*> x = foldg Empty (<$> x) Overlay Connect f
-
 instance Monad Graph where
   return  = Vertex
   x >>= f = foldg Empty f Overlay Connect x
@@ -164,6 +159,10 @@ removeEdge a b = foldg Empty Vertex Overlay c
  where
   c x y = Connect (removeEdge a b x) (removeVertex b y) `Overlay`
           Connect (removeVertex a x) (removeEdge a b y)
+
+instance Applicative Graph where
+  pure    = Vertex
+  f <*> x = foldg Empty (<$> x) Overlay Connect f
 
 -- Compute the Cartesian product of graphs.
 box :: Graph a -> Graph b -> Graph (a, b)

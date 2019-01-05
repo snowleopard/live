@@ -3,8 +3,6 @@
 
 :set -isrc
 
-:set -XTupleSections
-
 :load Graph Solution.Graph
 
 :set prompt "\x03BB> "

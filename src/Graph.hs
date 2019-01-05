@@ -3,7 +3,7 @@
 
 module Graph where
 
-import Data.Set as Set
+import Data.Set (Set)
 
 -- An algebraic data type for describing graphs.
 data Graph a = Empty
@@ -118,10 +118,6 @@ replaceVertex = undefined
 mergeVertices :: (a -> Bool) -> a -> Graph a -> Graph a
 mergeVertices = undefined
 
-instance Applicative Graph where
-  pure  = undefined
-  (<*>) = undefined
-
 instance Monad Graph where
   return = undefined
   (>>=)  = undefined
@@ -141,6 +137,10 @@ splitVertex = undefined
 -- Remove an edge from a given graph.
 removeEdge :: Eq a => a -> a -> Graph a -> Graph a
 removeEdge = undefined
+
+instance Applicative Graph where
+  pure  = undefined
+  (<*>) = undefined
 
 -- Compute the Cartesian product of graphs.
 box :: Graph a -> Graph b -> Graph (a, b)
