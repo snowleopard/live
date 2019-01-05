@@ -169,9 +169,8 @@ removeEdge a b = foldg Empty Vertex Overlay c
 box :: Graph a -> Graph b -> Graph (a, b)
 box x y = Overlay (fx <*> y) (fy <*> x)
  where
-  fx  =      (,) <$> set x
-  fy  = flip (,) <$> set y
-  set = foldg Empty Vertex Overlay Overlay
+  fx = foldg Empty (Vertex .      (,)) Overlay Overlay x
+  fy = foldg Empty (Vertex . flip (,)) Overlay Overlay y
 
 -- Construct a mesh graph from two lists of vertices.
 mesh :: [a] -> [b] -> Graph (a, b)
