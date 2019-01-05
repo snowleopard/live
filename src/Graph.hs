@@ -48,20 +48,12 @@ edgeList :: Ord a => Graph a -> [(a, a)]
 edgeList = undefined
 
 -- Check if the first graph is a subgraph of the second.
-isSubgraphOf :: Eq a => Graph a -> Graph a -> Bool
+isSubgraphOf :: Ord a => Graph a -> Graph a -> Bool
 isSubgraphOf = undefined
 
 -- Construct the graph comprising a single edge.
 edge :: a -> a -> Graph a
 edge = undefined
-
--- Construct the graph comprising a given list of isolated vertices.
-vertices :: [a] -> Graph a
-vertices = undefined
-
--- Construct the graph from a list of edges.
-edges :: [(a, a)] -> Graph a
-edges = undefined
 
 -- Overlay a given list of graphs.
 overlays :: [Graph a] -> Graph a
@@ -71,12 +63,24 @@ overlays = undefined
 connects :: [Graph a] -> Graph a
 connects = undefined
 
+-- Construct the graph comprising a given list of isolated vertices.
+vertices :: [a] -> Graph a
+vertices = undefined
+
+-- The clique on a list of vertices.
+clique :: [a] -> Graph a
+clique = undefined
+
+-- Construct the graph from a list of edges.
+edges :: [(a, a)] -> Graph a
+edges = undefined
+
 -- Check if a graph contains a given vertex.
 hasVertex :: Eq a => a -> Graph a -> Bool
 hasVertex = undefined
 
 -- Check if a graph contains a given edge.
-hasEdge :: Eq a => a -> a -> Graph a -> Bool
+hasEdge :: Ord a => a -> a -> Graph a -> Bool
 hasEdge = undefined
 
 -- Transpose a graph, i.e. flip the direction of all edges.
@@ -95,20 +99,24 @@ path = undefined
 circuit :: [a] -> Graph a
 circuit = undefined
 
--- The clique on a list of vertices.
-clique :: [a] -> Graph a
-clique = undefined
+-- The star formed by a centre vertex connected to a list of leaves.
+star :: a -> [a] -> Graph a
+star = undefined
 
 -- The biclique on two lists of vertices.
 biclique :: [a] -> [a] -> Graph a
 biclique = undefined
 
--- The star formed by a centre vertex connected to a list of leaves.
-star :: a -> [a] -> Graph a
-star = undefined
-
 instance Functor Graph where
   fmap = undefined
+
+-- Replace the first vertex with the second vertex.
+replaceVertex :: Eq a => a -> a -> Graph a -> Graph a
+replaceVertex = undefined
+
+-- Merge vertices satisfying a given predicate into a given vertex.
+mergeVertices :: (a -> Bool) -> a -> Graph a -> Graph a
+mergeVertices = undefined
 
 instance Applicative Graph where
   pure  = undefined
@@ -125,15 +133,6 @@ induce = undefined
 -- Remove a vertex from a given graph.
 removeVertex :: Eq a => a -> Graph a -> Graph a
 removeVertex = undefined
-
--- The function @'replaceVertex' x y@ replaces vertex @x@ with vertex @y@ in a
--- given 'Graph'. If @y@ already exists, @x@ and @y@ will be merged.
-replaceVertex :: Eq a => a -> a -> Graph a -> Graph a
-replaceVertex = undefined
-
--- Merge vertices satisfying a given predicate into a given vertex.
-mergeVertices :: (a -> Bool) -> a -> Graph a -> Graph a
-mergeVertices = undefined
 
 -- Split a vertex into a list of vertices with the same connectivity.
 splitVertex :: Eq a => a -> [a] -> Graph a -> Graph a
