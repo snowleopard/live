@@ -1,5 +1,6 @@
-![Newcastle University logo](img/logo-newcastle.svg)
-<!-- .element width="350" -->
+<div style="text-align: right;">
+<img src="img/logo-newcastle.svg" width="350" />
+</div><br/>
 
 # Algebraic Graphs
 
@@ -7,8 +8,8 @@
 
 Andrey Mokhov
 
-GitHub: [@snowleopard](https://github.com/snowleopard),
-Twitter: [@andreymokhov](https://twitter.com/andreymokhov")
+<small>GitHub: [@snowleopard](https://github.com/snowleopard),
+Twitter: [@andreymokhov](https://twitter.com/andreymokhov")</small><br/>
 
 ----
 
