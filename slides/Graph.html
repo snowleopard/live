@@ -21,38 +21,7 @@
 
 <body><div class="reveal"><div class="slides">
 
-<!-- Slides -->
-
-<section>
-<div style="text-align: right;">
-<img src="img/logo-newcastle.svg" width="350" />
-</div>
-<br/>
-<h1>Algebraic Graphs</h1>
-<hr/>
-<p>Andrey Mokhov</p>
-<p>
-<small>GitHub: <a href="https://github.com/snowleopard">@snowleopard</a>,
-Twitter: <a href="https://twitter.com/andreymokhov">@andreymokhov</a></small>
-</p>
-<br/>
-</section>
-
-<section>
-<h2>Example code</h2>
-<pre><code class="haskell">-- Construct the induced subgraph of a given graph.
-induce :: (a -> Bool) -> Graph a -> Graph a
-induce p x = x >>= \a -> if p a then Vertex a else Empty
-</code></pre>
-</section>
-
-
-<section>
-<h2>Example math</h2>
-$$\sum_{k=1}^{n} x_k$$
-</section>
-
-<!-- End of slides -->
+<section data-markdown="Graph.md" data-separator="----"></section>
 
 </div></div>
 <script src="revealjs/lib/js/head.min.js"></script>
