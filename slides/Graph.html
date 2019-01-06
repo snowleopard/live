@@ -1,52 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Algebraic Graphs</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-  <body>
-    <textarea id="source">
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-class: center, middle
+<title>Algebraic Graphs</title>
 
-# .title-big[Algebraic Graphs]
+<link rel="stylesheet" href="revealjs/css/reveal.css">
+<link rel="stylesheet" href="revealjs/css/theme/white.css">
+<link rel="stylesheet" href="revealjs/lib/css/zenburn.css"> <!-- Syntax highlighting -->
 
-<div style="font-size: 32pt;">Andrey Mokhov</div>
+<!-- Printing and PDF exports -->
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+</head>
 
-.spacer[ - ]
+<body><div class="reveal"><div class="slides">
 
-GitHub: **@snowleopard**, Twitter: **@andreymokhov**
+<!-- Slides -->
 
-<!-- .venue[Newcastle University, 2018] -->
-
-<img src="fig/logo-newcastle.svg"
-style="width: 250pt; position: absolute; top: 40pt; right: 40pt;"/>
-
----
-
-layout: true
-
-<!-- .footer.venue[Algebraic Graphs] -->
-
-
----
-
-## Introduction
-
+<section>
+<div style="text-align: right;">
+<img src="img/logo-newcastle.svg" width="350" />
+</div>
 <br/>
+<h1>Algebraic Graphs</h1>
+<hr/>
+<p>Andrey Mokhov</p>
+<p>
+<small>GitHub: <a href="https://github.com/snowleopard">@snowleopard</a>,
+Twitter: <a href="https://twitter.com/andreymokhov">@andreymokhov</a></small>
+</p>
+<br/>
+</section>
 
-    </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-    <script>
-      var slideshow = remark.create({
-		  ratio: '16:9',
-		  highlightLanguage: "c",
-		  highlightLines: true,
-		  highlightSpans: true,
-      countIncrementalSlides: false
-		});
-    </script>
-  </body>
+<section>
+<h2>Example code</h2>
+<pre><code class="haskell">-- Construct the induced subgraph of a given graph.
+induce :: (a -> Bool) -> Graph a -> Graph a
+induce p x = x >>= \a -> if p a then Vertex a else Empty
+</code></pre>
+</section>
+
+
+<section>
+<h2>Example math</h2>
+$$\sum_{k=1}^{n} x_k$$
+</section>
+
+<!-- End of slides -->
+
+</div></div>
+<script src="revealjs/lib/js/head.min.js"></script>
+<script src="revealjs/js/reveal.js"></script>
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            { src: 'revealjs/plugin/markdown/marked.js' },
+            { src: 'revealjs/plugin/markdown/markdown.js' },
+            { src: 'revealjs/plugin/math/math.js', async: true },
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+    });
+</script>
+</body>
 </html>
-
