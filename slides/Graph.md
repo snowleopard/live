@@ -1,23 +1,21 @@
-<div style="text-align: right;">
-<img src="img/logo-newcastle.svg" width="30%" />
-</div><br/>
+<div style="text-align: right;"><img src="img/logo-newcastle.svg" width="35%" /></div>
 
 # Algebraic Graphs
+<!-- .element: style="font-size: 2.9em;margin-top: 50px;" -->
 
 ---
 
-Andrey Mokhov
+#### Andrey Mokhov
 
 <small>GitHub: [@snowleopard](https://github.com/snowleopard),
-Twitter: [@andreymokhov](https://twitter.com/andreymokhov")</small><br/>
+Twitter: [@andreymokhov](https://twitter.com/andreymokhov),
+math &amp; programming [blog](https://blogs.ncl.ac.uk/andreymokhov/)</small>
 
 ----
 <!-- .slide: data-background="img/search.png" -->
 
-<br/><br/><br/><br/>
-
 ## Not this kind of graphs!
-<!-- .element: class="fragment" style="background: #fdeada; border: solid; box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4); line-height: 120px; font-size: 1.7em;" -->
+<!-- .element: class="fragment" style="background: #fdeada; border: solid; box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4); line-height: 120px; font-size: 1.7em; margin-top: 250px;" -->
 
 ----
 ## This kind of graphs
@@ -42,7 +40,7 @@ A **graph** is typically represented by a pair `$(V, E)$`:
 
 A direct translation to Haskell is:
 <!-- .element: class="fragment" data-fragment-index="1" style="margin-top: 50px;" -->
-```haskell
+```
 type Graph a = (Set a, Set (a,a))
 
 example :: Graph Int
