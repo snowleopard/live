@@ -14,7 +14,7 @@ math &amp; programming [blog](https://blogs.ncl.ac.uk/andreymokhov/)</small>
 ----
 <!-- .slide: data-background="img/search.png" -->
 
-## Not this kind of graphs!
+## Not [this](https://www.google.co.uk/search?q=algebraic+graphs&tbm=isch) kind of graphs!
 <!-- .element: class="fragment" style="background: #fdeada; border: solid; box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4); line-height: 120px; font-size: 1.7em; margin-top: 250px;" -->
 
 ----
@@ -40,7 +40,7 @@ A **graph** is typically represented by a pair `$(V, E)$`:
 
 A direct translation to Haskell is:
 <!-- .element: class="fragment" data-fragment-index="1" style="margin-top: 50px;" -->
-```
+```haskell
 type Graph a = (Set a, Set (a,a))
 
 example :: Graph Int
