@@ -1,5 +1,5 @@
 <div style="text-align: right;">
-<img src="img/logo-newcastle.svg" width="350" />
+<img src="img/logo-newcastle.svg" width="30%" />
 </div><br/>
 
 # Algebraic Graphs
@@ -12,17 +12,40 @@ Andrey Mokhov
 Twitter: [@andreymokhov](https://twitter.com/andreymokhov")</small><br/>
 
 ----
+<!-- .slide: data-background="img/search.png" -->
 
-### Example code
+<br/><br/><br/><br/>
 
-```haskell
--- Construct the induced subgraph of a given graph.
-induce :: (a -> Bool) -> Graph a -> Graph a
-induce p x = x >>= \a -> if p a then Vertex a else Empty
-```
+## Not this kind of graphs!
+<!-- .element: class="fragment" style="background: #fdeada; border: solid; box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4); line-height: 120px; font-size: 1.7em;" -->
 
 ----
+## This kind of graphs
 
-### Example math
+<img src="img/example-graphs.svg" />
 
-`$$\sum_{k=1}^{n} x_k$$`
+* Directed or undirected edges
+* Labelled vertices, labelled or unlabelled edges
+* Cycles and self-loops are allowed
+* No vertex ports, no forbidden edges
+
+----
+<!-- .slide: style="text-align: left;" -->
+## From math to Haskell
+<!-- .element: style="text-align: center;" -->
+
+A **graph** is typically represented by a pair `$(V, E)$`:
+* `$V$` is a set of **vertices**
+* `$E \subseteq V \times V$` is a set of **edges**
+* Example: `$(\{1,2,3\}, \{(1,2), (1,3)\})$`
+<img src="img/example-123.svg" width="18%" style="position: absolute; right: 20px; top: 220px;" />
+
+A direct translation to Haskell is:
+<!-- .element: class="fragment" data-fragment-index="1" style="margin-top: 50px;" -->
+```haskell
+type Graph a = (Set a, Set (a,a))
+
+example :: Graph Int
+example = ([1,2,3], [(1,2), (1,3)])
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
