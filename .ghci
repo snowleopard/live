@@ -11,9 +11,7 @@
 
 :{
 :def go \top -> return $ unlines $
-    [ ":set -XOverloadedLists"
-    , ":set -XOverloadedStrings"
-    , ":set -fno-warn-type-defaults"
+    [ ":set -fno-warn-type-defaults"
     , ":m " ++ top
     , ":show imports" ]
 :}

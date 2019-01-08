@@ -153,13 +153,6 @@ removeVertex a = induce (/=a)
 splitVertex :: Eq a => a -> [a] -> Graph a -> Graph a
 splitVertex a bs x = x >>= \b -> if b == a then vertices bs else Vertex b
 
--- Remove an edge from a given graph.
-removeEdge :: Eq a => a -> a -> Graph a -> Graph a
-removeEdge a b = foldg Empty Vertex Overlay c
- where
-  c x y = Connect (removeEdge a b x) (removeVertex b y) `Overlay`
-          Connect (removeVertex a x) (removeEdge a b y)
-
 instance Applicative Graph where
   pure    = Vertex
   f <*> x = foldg Empty (<$> x) Overlay Connect f
@@ -178,3 +171,31 @@ mesh as bs = box (path as) (path bs)
 -- Construct a torus graph from two lists of vertices.
 torus :: [a] -> [b] -> Graph (a, b)
 torus as bs = box (circuit as) (circuit bs)
+
+-- Preset of a vertex, i.e. the set of all predecessors.
+preSet :: Ord a => a -> Graph a -> Set a
+preSet a = snd . foldg e v o c
+ where
+  e                 = (Set.empty      , Set.empty)
+  v a               = (Set.singleton a, Set.empty)
+  o (v1,e1) (v2,e2) = (Set.union v1 v2, Set.union e1 e2)
+  c (v1,e1) (v2,e2) = (Set.union v1 v2, Set.unions $ [e1, e2] ++ [ v1 | Set.member a v2 ])
+
+-- Postset of a vertex, i.e. the set of all successors.
+postSet :: Ord a => a -> Graph a -> Set a
+postSet a = snd . foldg e v o c
+ where
+  e                 = (Set.empty      , Set.empty)
+  v a               = (Set.singleton a, Set.empty)
+  o (v1,e1) (v2,e2) = (Set.union v1 v2, Set.union e1 e2)
+  c (v1,e1) (v2,e2) = (Set.union v1 v2, Set.unions $ [e1, e2] ++ [ v2 | Set.member a v1 ])
+
+-- Remove an edge from a given graph.
+-- Note: the implementation below is cool but very inefficient. You can use the
+-- two functions above to remove an edge by first removing a vertex, and then
+-- recreating its neighbourhood, but with one neighbour removed.
+removeEdge :: Eq a => a -> a -> Graph a -> Graph a
+removeEdge a b = foldg Empty Vertex Overlay c
+ where
+  c x y = Connect (removeEdge a b x) (removeVertex b y) `Overlay`
+          Connect (removeVertex a x) (removeEdge a b y)

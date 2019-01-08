@@ -134,10 +134,6 @@ removeVertex = undefined
 splitVertex :: Eq a => a -> [a] -> Graph a -> Graph a
 splitVertex = undefined
 
--- Remove an edge from a given graph.
-removeEdge :: Eq a => a -> a -> Graph a -> Graph a
-removeEdge = undefined
-
 instance Applicative Graph where
   pure  = undefined
   (<*>) = undefined
@@ -153,3 +149,15 @@ mesh = undefined
 -- Construct a torus graph from two lists of vertices.
 torus :: [a] -> [b] -> Graph (a, b)
 torus = undefined
+
+-- Preset of a vertex, i.e. the set of all predecessors.
+preSet :: Ord a => a -> Graph a -> Set a
+preSet = undefined
+
+-- Postset of a vertex, i.e. the set of all successors.
+postSet :: Ord a => a -> Graph a -> Set a
+postSet = undefined
+
+-- Remove an edge from a given graph.
+removeEdge :: Eq a => a -> a -> Graph a -> Graph a
+removeEdge = undefined
