@@ -142,3 +142,74 @@ Directed graph semantics:
 <li>**Overlay** of `$(V_1, E_1)$` and `$(V_2, E_2)$` is `$(V_1 \cup V_2, E_1 \cup E_2)$`</li>
 <li>**Connect** of `$(V_1, E_1)$` and `$(V_2, E_2)$` is `$(V_1 \cup V_2, E_1 \cup E_2 \cup V_1 \times V_2)$`</li>
 </ul></div>
+
+--
+
+## Examples
+
+<table style="border: solid 1px;">
+<tr style="border: solid 1px;">
+<td style="border: solid 1px;">
+<div style="text-align: center;">
+<img src="img/vertex-a.svg" style="height: 50%; margin-top: 10px; margin-bottom: 10px;"/><br/>
+**Vertex a**<br/>
+`$a$`
+</div>
+</td>
+<td>
+<div style="text-align: center;">
+<img src="img/overlay-a-b.svg" style="height: 50%; margin-top: 10px; margin-bottom: 10px;"/><br/>
+**Overlay (Vertex a) (Vertex b)**<br/>
+`$a+b$`
+</div>
+</td>
+</tr>
+<tr style="border: solid 1px;">
+<td style="border: solid 1px;">
+<div style="text-align: center;">
+<img src="img/vertex-b.svg" style="height: 50%; margin-top: 10px; margin-bottom: 10px;"/><br/>
+**Vertex b**<br/>
+`$b$`
+</div>
+</td>
+<td>
+<div style="text-align: center;">
+<img src="img/connect-a-b.svg" style="height: 50%; margin-top: 10px; margin-bottom: 10px;"/><br/>
+**Connect (Vertex a) (Vertex b)**<br/>
+`$a \times b = ab$`
+</div>
+</td>
+</tr>
+</table>
+
+--
+
+## More examples
+
+<img src="img/connect-a-a.svg" style="width: 12%; margin-bottom: 10px;"/><br/>
+`$aa = a^2$`
+
+---
+
+<img src="img/distributivity-part.svg" style="width: 80%; margin-bottom: 10px;"/><br/>
+`$ab + ac = a(b+c)$`
+
+----
+## Distributivity
+
+<img src="img/distributivity.svg" style="width: 90%; margin-top: 50px; margin-bottom: 50px;"/><br/>
+`$x(y + z) = xy + xz$`<br/>
+`$(x + y)z = xz + yz$`
+
+----
+<!-- .slide: id="test" -->
+
+## Decomposition
+
+<img src="img/decomposition.svg" style="width: 100%; margin-top: 50px; margin-bottom: 40px;"/><br/>
+`$xyz = xy + xz + yz$`
+
+<div style="text-align: left; font-size: 0.85em; border: solid 1px; background: #ebf1de; padding: 10px; margin-top: 35px;">
+**Intuition:** any graph expression can be broken down into an overlay of vertices
+and edges.
+</div>
